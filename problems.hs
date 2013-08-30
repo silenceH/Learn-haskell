@@ -4,10 +4,30 @@
  -}
 
 -- problem1: find the last element of a list
--- TODO: exception for the empty list
-
 lastElement :: [a] -> a
+lastElement [] = error "error: empty list has no elements"
 lastElement [x] = x
-lastElement (x:xs) = lastElement xs
+lastElement (_:xs) = lastElement xs
+
+-- problem2: find the last but one element of a list
+lastButOne :: [a] -> a
+lastButOne (x:y:[]) = x
+lastButOne (_:y:ys) = lastButOne (y:ys)
+
+-- problem3: find the kth element in a list where the first element is 1
+kthElement :: [a] -> Int -> a
+kthElement _ 0 = error "There is no 0th element"
+kthElement [] _ = error "There are not enough elements in the list"
+kthElement (x:xs) 1 = x
+kthElement (x:xs) n = kthElement xs (n-1)
+
+-- problem4: find the number of elements in a list
+myLength :: [a] -> Int
+myLength [] = 0
+myLength (_:xs) = 1 + myLength xs
+
+
+
+
 
 
