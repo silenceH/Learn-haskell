@@ -26,8 +26,11 @@ myLength :: [a] -> Int
 myLength [] = 0
 myLength (_:xs) = 1 + myLength xs
 
+-- problem5: reverse a list
+myReverse :: [a] -> [a]
+myReverse [] = []
+myReverse (x:xs) = myReverse xs ++ [x]
 
-
-
+-- problem6: find out whether a list is a palendrome
 
 
