@@ -32,5 +32,10 @@ myReverse [] = []
 myReverse (x:xs) = myReverse xs ++ [x]
 
 -- problem6: find out whether a list is a palendrome
-
+isPalendrome :: Eq a => [a] -> Bool
+isPalendrome [] = True
+isPalendrome [_] = True
+isPalendrome (x:xs)
+	| x == last xs = isPalendrome $init xs 
+	| otherwise = False
 
